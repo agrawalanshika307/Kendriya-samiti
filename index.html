@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kendiya Samiti — Member Directory</title>
+  <meta name="description" content="Search and browse the Kendiya Samiti Varshik Member Directory. Find members by name or mobile number instantly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="app-header" role="banner">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="logo-icon" aria-hidden="true">🏛️</div>
+        <div class="logo-text">
+          <h1>Kendiya Samiti</h1>
+          <p>Varshik Member Directory</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="kbd-hint" aria-hidden="true">
+          <kbd class="kbd">↑↓</kbd> navigate &nbsp;
+          <kbd class="kbd">Enter</kbd> select &nbsp;
+          <kbd class="kbd">Esc</kbd> clear
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+
+    <!-- Search Input -->
+    <div class="search-wrapper" role="search">
+      <span class="search-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </span>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search by name or mobile number…"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+        aria-label="Search contacts"
+        aria-autocomplete="list"
+        aria-controls="results-grid"
+      />
+      <button id="clear-btn" class="clear-btn" aria-label="Clear search" title="Clear search">✕</button>
+    </div>
+
+    <!-- Stats -->
+    <div id="stats-bar" class="search-stats" role="status" aria-live="polite" aria-atomic="true">
+      <span class="stats-count" id="stats-count">0</span>
+      <span id="stats-label">contacts</span>
+      <span class="stats-dot"></span>
+      <span id="stats-query">total</span>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <div class="main-content">
+
+    <!-- Results Pane -->
+    <main class="results-pane" id="results-pane" role="main">
+
+      <!-- Loading -->
+      <div id="loading-state" class="loading-state" role="status" aria-label="Loading contacts">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loading-text">Loading member directory…</p>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden" aria-live="polite">
+        <div class="empty-illustration" aria-hidden="true">🔍</div>
+        <h2 class="empty-title">No results found</h2>
+        <p class="empty-subtitle">Try a different name or phone number.</p>
+      </div>
+
+      <!-- Results Grid -->
+      <div
+        id="results-grid"
+        class="results-grid"
+        role="list"
+        aria-label="Contact results"
+      ></div>
+    </main>
+
+    <!-- ===================== DESKTOP DETAILS PANEL ===================== -->
+    <aside id="details-panel" class="details-panel empty" aria-label="Contact details">
+
+      <!-- Hint when nothing selected -->
+      <div id="panel-empty-hint" class="details-empty-hint">
+        <span class="hint-icon" aria-hidden="true">👆</span>
+        <p>Click on any contact card to see their full details here.</p>
+      </div>
+
+      <!-- Panel Content -->
+      <div id="panel-content" style="display:none;flex-direction:column;height:100%;">
+        <div class="details-header">
+          <div id="panel-avatar" class="details-avatar" aria-hidden="true">?</div>
+          <div class="details-meta">
+            <div id="panel-name" class="details-name">—</div>
+            <div id="panel-sno" class="details-sno">—</div>
+          </div>
+        </div>
+
+        <div id="panel-fields" class="details-body"></div>
+
+        <div class="details-actions">
+          <button id="panel-copy-json" class="action-btn primary" title="Copy all details as JSON">
+            <span aria-hidden="true">📄</span> Copy as JSON
+          </button>
+          <button id="panel-close" class="action-btn secondary" title="Close panel" aria-label="Close details panel">
+            ✕ Close
+          </button>
+        </div>
+      </div>
+    </aside>
+
+  </div><!-- /.main-content -->
+
+</div><!-- /.app-container -->
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer-overlay" class="drawer-overlay" role="presentation" aria-hidden="true"></div>
+<div
+  id="mobile-drawer"
+  class="mobile-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Contact details"
+>
+  <div class="drawer-handle" aria-hidden="true">
+    <div class="drawer-handle-bar"></div>
+  </div>
+  <button id="drawer-close" class="drawer-close" aria-label="Close contact details">✕</button>
+
+  <div class="details-header">
+    <div id="drawer-avatar" class="details-avatar" aria-hidden="true">?</div>
+    <div class="details-meta">
+      <div id="drawer-name" class="details-name">—</div>
+      <div id="drawer-sno" class="details-sno">—</div>
+    </div>
+  </div>
+
+  <div id="drawer-fields" class="details-body"></div>
+
+  <div class="details-actions">
+    <button id="drawer-copy-json" class="action-btn primary">
+      <span aria-hidden="true">📄</span> Copy as JSON
+    </button>
+  </div>
+  <div style="height:24px"></div><!-- safe area -->
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

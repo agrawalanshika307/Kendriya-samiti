@@ -1,166 +1,295 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kendiya Samiti — Member Directory</title>
-  <meta name="description" content="Search and browse the Kendiya Samiti Varshik Member Directory. Find members by name or mobile number instantly." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>श्री अग्रसेन सनातन पेनल — 2026</title>
+  <meta name="description" content="श्री अग्रसेन सनातन पेनल — श्री अग्रवाल समाज केन्द्रीय समिति (रजि.) इन्दौर द्विवार्षिक चुनाव 2026" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="panel.css" />
 </head>
 <body>
 
-<div class="app-container">
+<!-- ══════════════════════════════════════
+     BACKGROUND LAYERS
+══════════════════════════════════════ -->
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
 
-  <!-- ===================== HEADER ===================== -->
-  <header class="app-header" role="banner">
-    <div class="header-top">
-      <div class="logo-area">
-        <div class="logo-icon" aria-hidden="true">🏛️</div>
-        <div class="logo-text">
-          <h1>Kendiya Samiti</h1>
-          <p>Varshik Member Directory</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <div class="kbd-hint" aria-hidden="true">
-          <kbd class="kbd">↑↓</kbd> navigate &nbsp;
-          <kbd class="kbd">Enter</kbd> select &nbsp;
-          <kbd class="kbd">Esc</kbd> clear
-        </div>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">🌙</button>
-      </div>
+<!-- ══════════════════════════════════════
+     SPLASH SCREEN
+══════════════════════════════════════ -->
+<div id="splash" class="splash">
+  <div class="splash-inner">
+    <img src="logo.png" alt="महाराज अग्रसेन" class="splash-logo" onerror="this.style.display='none'" />
+    <div class="splash-om">🙏</div>
+    <h1 class="splash-title">श्री अग्रसेन<br/>सनातन पेनल</h1>
+    <p class="splash-sub">श्री अग्रवाल समाज केन्द्रीय समिति</p>
+    <div class="splash-dots">
+      <span></span><span></span><span></span>
     </div>
+  </div>
+</div>
 
-    <!-- Search Input -->
-    <div class="search-wrapper" role="search">
-      <span class="search-icon" aria-hidden="true">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
-      </span>
-      <input
-        type="search"
-        id="search-input"
-        class="search-input"
-        placeholder="Search by name or mobile number…"
-        autocomplete="off"
-        autocorrect="off"
-        spellcheck="false"
-        aria-label="Search contacts"
-        aria-autocomplete="list"
-        aria-controls="results-grid"
-      />
-      <button id="clear-btn" class="clear-btn" aria-label="Clear search" title="Clear search">✕</button>
-    </div>
+<!-- ══════════════════════════════════════
+     MAIN APP
+══════════════════════════════════════ -->
+<div id="app" class="app hidden">
 
-    <!-- Stats -->
-    <div id="stats-bar" class="search-stats" role="status" aria-live="polite" aria-atomic="true">
-      <span class="stats-count" id="stats-count">0</span>
-      <span id="stats-label">contacts</span>
-      <span class="stats-dot"></span>
-      <span id="stats-query">total</span>
+  <!-- ─── TOP HEADER ─── -->
+  <header class="top-header">
+    <div class="header-logo-area">
+      <img src="logo.png" alt="अग्रसेन" class="header-logo" onerror="this.style.display='none'" />
+      <div class="header-text">
+        <div class="header-samaj">श्री अग्रवाल समाज केन्द्रीय समिति (रजि.), इन्दौर</div>
+        <div class="header-chunav">द्विवार्षिक चुनाव 2026</div>
+      </div>
     </div>
   </header>
 
-  <!-- ===================== MAIN ===================== -->
-  <div class="main-content">
-
-    <!-- Results Pane -->
-    <main class="results-pane" id="results-pane" role="main">
-
-      <!-- Loading -->
-      <div id="loading-state" class="loading-state" role="status" aria-label="Loading contacts">
-        <div class="spinner" aria-hidden="true"></div>
-        <p class="loading-text">Loading member directory…</p>
+  <!-- ─── HERO BANNER ─── -->
+  <section class="hero-banner">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ नामांकन हेतु ✦</div>
+      <h2 class="hero-panel-name">श्री अग्रसेन<br/>सनातन पेनल</h2>
+      <div class="hero-slogan">
+        <span class="slogan-left">विश्वास आपका,<br/>संकल्प हमारा।</span>
+        <div class="hero-divider-dot">✦</div>
+        <span class="slogan-right">एकजुट नेतृत्व,<br/>उज्ज्वल भविष्य।</span>
       </div>
+    </div>
+  </section>
 
-      <!-- Empty State -->
-      <div id="empty-state" class="empty-state hidden" aria-live="polite">
-        <div class="empty-illustration" aria-hidden="true">🔍</div>
-        <h2 class="empty-title">No results found</h2>
-        <p class="empty-subtitle">Try a different name or phone number.</p>
+  <!-- ─── EVENT INFO STRIP ─── -->
+  <div class="event-strip">
+    <div class="event-card">
+      <span class="event-icon">📅</span>
+      <div>
+        <div class="event-label">तारीख</div>
+        <div class="event-value">रविवार, 26 जुलाई 2026</div>
       </div>
-
-      <!-- Results Grid -->
-      <div
-        id="results-grid"
-        class="results-grid"
-        role="list"
-        aria-label="Contact results"
-      ></div>
-    </main>
-
-    <!-- ===================== DESKTOP DETAILS PANEL ===================== -->
-    <aside id="details-panel" class="details-panel empty" aria-label="Contact details">
-
-      <!-- Hint when nothing selected -->
-      <div id="panel-empty-hint" class="details-empty-hint">
-        <span class="hint-icon" aria-hidden="true">👆</span>
-        <p>Click on any contact card to see their full details here.</p>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">⏰</span>
+      <div>
+        <div class="event-label">समय</div>
+        <div class="event-value">प्रातः 10 से सायं 5 बजे</div>
       </div>
-
-      <!-- Panel Content -->
-      <div id="panel-content" style="display:none;flex-direction:column;height:100%;">
-        <div class="details-header">
-          <div id="panel-avatar" class="details-avatar" aria-hidden="true">?</div>
-          <div class="details-meta">
-            <div id="panel-name" class="details-name">—</div>
-            <div id="panel-sno" class="details-sno">—</div>
-          </div>
-        </div>
-
-        <div id="panel-fields" class="details-body"></div>
-
-        <div class="details-actions">
-          <button id="panel-copy-json" class="action-btn primary" title="Copy all details as JSON">
-            <span aria-hidden="true">📄</span> Copy as JSON
-          </button>
-          <button id="panel-close" class="action-btn secondary" title="Close panel" aria-label="Close details panel">
-            ✕ Close
-          </button>
-        </div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">📍</span>
+      <div>
+        <div class="event-label">स्थान</div>
+        <div class="event-value">शुभ कारज गार्डन, राजीव गांधी चौराहा, इन्दौर</div>
       </div>
-    </aside>
-
-  </div><!-- /.main-content -->
-
-</div><!-- /.app-container -->
-
-<!-- ===================== MOBILE DRAWER ===================== -->
-<div id="drawer-overlay" class="drawer-overlay" role="presentation" aria-hidden="true"></div>
-<div
-  id="mobile-drawer"
-  class="mobile-drawer"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Contact details"
->
-  <div class="drawer-handle" aria-hidden="true">
-    <div class="drawer-handle-bar"></div>
-  </div>
-  <button id="drawer-close" class="drawer-close" aria-label="Close contact details">✕</button>
-
-  <div class="details-header">
-    <div id="drawer-avatar" class="details-avatar" aria-hidden="true">?</div>
-    <div class="details-meta">
-      <div id="drawer-name" class="details-name">—</div>
-      <div id="drawer-sno" class="details-sno">—</div>
     </div>
   </div>
 
-  <div id="drawer-fields" class="details-body"></div>
-
-  <div class="details-actions">
-    <button id="drawer-copy-json" class="action-btn primary">
-      <span aria-hidden="true">📄</span> Copy as JSON
-    </button>
+  <!-- ─── NOTICE BAR ─── -->
+  <div class="notice-bar">
+    <div class="notice-scroll">
+      📢 &nbsp; निवेदन — पदाधिकारी हेतु एक एक मत, पुरुष कार्यकारिणी हेतु न्यूनतम 10 मत एवं महिला कार्यकारिणी हेतु 3 मत देना अनिवार्य है। &nbsp; मतदान हेतु अपना परिचय पत्र (आधार कार्ड, ड्राइविंग लाइसेंस आदि) साथ में लाना अनिवार्य है। &nbsp; 📢
+    </div>
   </div>
-  <div style="height:24px"></div><!-- safe area -->
+
+  <!-- ─── TAB NAVIGATION ─── -->
+  <nav class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="padadhikari" onclick="switchTab('padadhikari')">
+      🏛️ पदाधिकारी
+    </button>
+    <button class="tab-btn" data-tab="purush" onclick="switchTab('purush')">
+      👨 पुरुष<br/>कार्यकारिणी
+    </button>
+    <button class="tab-btn" data-tab="mahila" onclick="switchTab('mahila')">
+      👩 महिला<br/>कार्यकारिणी
+    </button>
+    <button class="tab-btn" data-tab="search" onclick="switchTab('search')">
+      🔍 सदस्य<br/>खोजें
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       SECTION: पदाधिकारीगण
+  ══════════════════════════════════════ -->
+  <section id="tab-padadhikari" class="tab-section active">
+    <div class="section-title-wrap">
+      <div class="section-title">✦ पदाधिकारीगण ✦</div>
+      <div class="section-subtitle">मुख्य पद के उम्मीदवार</div>
+    </div>
+
+    <!-- Main officer — PRESIDENT (big card) -->
+    <div class="president-card">
+      <div class="president-avatar-ring">
+        <div class="president-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b)">दिबं</div>
+      </div>
+      <div class="crown-badge">👑 अध्यक्ष पद हेतु</div>
+      <div class="president-name">दिनेश बंसल</div>
+      <div class="president-tagline">नेतृत्व में अनुभव, समाज में विश्वास</div>
+    </div>
+
+    <!-- Sliding officer cards -->
+    <div class="cards-heading">अन्य पदाधिकारी</div>
+    <div class="h-scroll-wrap">
+      <div class="h-scroll" id="officerScroll">
+
+        <div class="officer-card" onclick="showDetail('भरत ऐरन','महामंत्री पद हेतु','महामंत्री','#7c3aed','भऐ')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">भऐ</div>
+          <div class="officer-post">महामंत्री पद हेतु</div>
+          <div class="officer-name">भरत ऐरन</div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('घीरज गर्ग','संयोजक पद हेतु','संयोजक','#0369a1','घगर्')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">घगर्</div>
+          <div class="officer-post">संयोजक पद हेतु</div>
+          <div class="officer-name">घीरज गर्ग</div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('अजय अग्रवाल','कोषाध्यक्ष पद हेतु','कोषाध्यक्ष','#065f46','अअ')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#065f46,#34d399)">अअ</div>
+          <div class="officer-post">कोषाध्यक्ष पद हेतु</div>
+          <div class="officer-name">अजय अग्रवाल</div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('हरिकिशन जिंदल','पुरुष उपाध्यक्ष पद हेतु','उपाध्यक्ष','#9f1239','हजिं')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#9f1239,#fb7185)">हजिं</div>
+          <div class="officer-post">पुरुष उपाध्यक्ष पद हेतु</div>
+          <div class="officer-name">हरिकिशन जिंदल</div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('शीतल गर्ग तोड़ीवाला','महिला उपाध्यक्ष पद हेतु','उपाध्यक्ष','#831843','शगर्')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#831843,#f472b6)">शगर्</div>
+          <div class="officer-post">महिला उपाध्यक्ष पद हेतु</div>
+          <div class="officer-name">शीतल गर्ग तोड़ीवाला</div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('के.के. गोयल (कांट्रेक्टर)','सह-मंत्री पद हेतु','सह-मंत्री','#713f12','केगो')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#713f12,#fbbf24)">केगो</div>
+          <div class="officer-post">सह-मंत्री पद हेतु</div>
+          <div class="officer-name">के.के. गोयल<br/><small>(कांट्रेक्टर)</small></div>
+        </div>
+
+        <div class="officer-card" onclick="showDetail('विशाल अग्रवाल (बट्टका)','सह-संयोजक पद हेतु','सह-संयोजक','#1e3a5f','विअ')">
+          <div class="officer-avatar" style="background:linear-gradient(135deg,#1e3a5f,#60a5fa)">विअ</div>
+          <div class="officer-post">सह-संयोजक पद हेतु</div>
+          <div class="officer-name">विशाल अग्रवाल<br/><small>(बट्टका)</small></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-hint">← स्वाइप करें →</div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION: पुरुष कार्यकारिणी
+  ══════════════════════════════════════ -->
+  <section id="tab-purush" class="tab-section">
+    <div class="section-title-wrap">
+      <div class="section-title">✦ पुरुष कार्यकारिणी ✦</div>
+      <div class="section-subtitle">10 सदस्य — न्यूनतम 10 मत अनिवार्य</div>
+    </div>
+    <div class="member-grid" id="purushGrid">
+      <!-- filled by JS -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION: महिला कार्यकारिणी
+  ══════════════════════════════════════ -->
+  <section id="tab-mahila" class="tab-section">
+    <div class="section-title-wrap">
+      <div class="section-title">✦ महिला कार्यकारिणी ✦</div>
+      <div class="section-subtitle">3 सदस्य — न्यूनतम 3 मत अनिवार्य</div>
+    </div>
+    <div class="member-grid" id="mahilaGrid">
+      <!-- filled by JS -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECTION: सदस्य खोजें
+  ══════════════════════════════════════ -->
+  <section id="tab-search" class="tab-section">
+    <div class="section-title-wrap">
+      <div class="section-title">✦ सदस्य खोजें ✦</div>
+      <div class="section-subtitle">नाम या मोबाइल नंबर से खोजें</div>
+    </div>
+
+    <div class="search-box-wrap">
+      <div class="search-box-inner">
+        <span class="s-icon">🔍</span>
+        <input
+          type="search"
+          id="searchInput"
+          class="s-input"
+          placeholder="नाम या मोबाइल टाइप करें…"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          inputmode="search"
+        />
+        <button id="clearBtn" class="s-clear hidden" onclick="clearSearch()">✕</button>
+      </div>
+    </div>
+
+    <div id="searchStats" class="search-stats-bar hidden">
+      <span id="statsText"></span>
+    </div>
+
+    <!-- Loading -->
+    <div id="loadingState" class="state-box">
+      <div class="big-spinner"></div>
+      <p>सदस्य सूची लोड हो रही है…</p>
+    </div>
+
+    <!-- No results -->
+    <div id="noResults" class="state-box hidden">
+      <div class="state-emoji">😔</div>
+      <p class="state-title">कोई परिणाम नहीं मिला</p>
+      <p class="state-sub">कोई और नाम या नंबर आज़माएं</p>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsList" class="results-list"></div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="app-footer">
+    <div class="footer-logo-area">
+      <span class="footer-om">🙏</span>
+      <div>
+        <div class="footer-panel">श्री अग्रसेन सनातन पेनल</div>
+        <div class="footer-creator">Created by Surendra Kumar Agrawal</div>
+      </div>
+    </div>
+    <div class="footer-note">श्री अग्रवाल समाज केन्द्रीय समिति (रजि.), इन्दौर</div>
+  </footer>
+
+</div><!-- /#app -->
+
+<!-- ══════════════════════════════════════
+     DETAIL MODAL (bottom sheet)
+══════════════════════════════════════ -->
+<div id="detailOverlay" class="detail-overlay hidden" onclick="closeDetail()"></div>
+<div id="detailSheet" class="detail-sheet hidden">
+  <div class="sheet-handle"></div>
+  <button class="sheet-close-btn" onclick="closeDetail()">✕</button>
+  <div id="sheetContent" class="sheet-content"></div>
 </div>
 
-<script src="app.js"></script>
+<!-- ══════════════════════════════════════
+     MEMBER DETAIL MODAL
+══════════════════════════════════════ -->
+<div id="memberOverlay" class="detail-overlay hidden" onclick="closeMemberDetail()"></div>
+<div id="memberSheet" class="detail-sheet hidden">
+  <div class="sheet-handle"></div>
+  <button class="sheet-close-btn" onclick="closeMemberDetail()">✕</button>
+  <div id="memberSheetContent" class="sheet-content"></div>
+</div>
+
+<script src="panel.js"></script>
 </body>
 </html>

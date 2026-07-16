@@ -1,0 +1,999 @@
+/* =============================================
+   PANEL CSS — श्री अग्रसेन सनातन पेनल
+   Mobile-First Design
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Poppins:wght@400;600;700&display=swap');
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #1a0800;
+}
+
+/* ─── BACKGROUND ─── */
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background: url('bg.png') center center / cover no-repeat;
+  z-index: 0;
+}
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(120,30,0,0.82) 0%,
+    rgba(160,60,0,0.75) 40%,
+    rgba(80,20,0,0.88) 100%
+  );
+  z-index: 1;
+}
+
+/* ─── HIDDEN UTIL ─── */
+.hidden { display: none !important; }
+
+/* ─── MAIN APP ─── */
+.app {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   SPLASH SCREEN
+══════════════════════════════════════ */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #8b2800 0%, #3d0c00 60%, #1a0500 100%);
+  animation: splashFadeOut 0.6s ease-out 2.8s both;
+}
+
+@keyframes splashFadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+
+.splash-inner {
+  text-align: center;
+  animation: splashIn 0.7s ease-out;
+}
+
+@keyframes splashIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.splash-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fbbf24;
+  margin-bottom: 12px;
+  box-shadow: 0 0 30px rgba(251,191,36,0.5);
+}
+
+.splash-om {
+  font-size: 48px;
+  margin-bottom: 8px;
+  animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px #fbbf24); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 20px #fbbf24); }
+}
+
+.splash-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fef3c7;
+  line-height: 1.3;
+  text-shadow: 0 2px 12px rgba(251,191,36,0.6);
+  margin-bottom: 6px;
+}
+
+.splash-sub {
+  font-size: 13px;
+  color: #fcd34d;
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.splash-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.splash-dots span {
+  width: 8px; height: 8px;
+  background: #fbbf24;
+  border-radius: 50%;
+  animation: dotBounce 1.2s ease-in-out infinite;
+}
+.splash-dots span:nth-child(2) { animation-delay: 0.2s; }
+.splash-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotBounce {
+  0%,100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* ══════════════════════════════════════
+   TOP HEADER
+══════════════════════════════════════ */
+.top-header {
+  background: linear-gradient(135deg, rgba(120,30,0,0.95), rgba(60,10,0,0.98));
+  border-bottom: 2px solid #fbbf24;
+  padding: 10px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+
+.header-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fbbf24;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(251,191,36,0.4);
+}
+
+.header-text { flex: 1; }
+
+.header-samaj {
+  font-size: 11px;
+  color: #fcd34d;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.header-chunav {
+  font-size: 13px;
+  color: #fef3c7;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* ══════════════════════════════════════
+   HERO BANNER
+══════════════════════════════════════ */
+.hero-banner {
+  position: relative;
+  padding: 28px 20px 24px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(120,30,0,0.6) 0%,
+    rgba(180,60,0,0.3) 100%
+  );
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(251,191,36,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(251,191,36,0.2);
+  border: 1px solid rgba(251,191,36,0.5);
+  color: #fcd34d;
+  font-size: 11px;
+  padding: 4px 14px;
+  border-radius: 99px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-panel-name {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fef3c7;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(251,191,36,0.5), 0 4px 8px rgba(0,0,0,0.4);
+  margin-bottom: 18px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  background: linear-gradient(180deg, #fef3c7 30%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-slogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(180,60,0,0.6), rgba(120,30,0,0.7));
+  border: 1px solid rgba(251,191,36,0.35);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.slogan-left, .slogan-right {
+  font-size: 13px;
+  color: #fef3c7;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 600;
+  flex: 1;
+}
+
+.hero-divider-dot {
+  color: #fbbf24;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   EVENT STRIP
+══════════════════════════════════════ */
+.event-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 14px 0;
+}
+
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(180,60,0,0.65), rgba(120,20,0,0.75));
+  border: 1px solid rgba(251,191,36,0.3);
+  border-radius: 12px;
+  padding: 10px 14px;
+  backdrop-filter: blur(8px);
+}
+
+.event-icon { font-size: 22px; flex-shrink: 0; }
+
+.event-label {
+  font-size: 10px;
+  color: #fcd34d;
+  letter-spacing: 0.5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.event-value {
+  font-size: 13px;
+  color: #fef3c7;
+  line-height: 1.4;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+/* ══════════════════════════════════════
+   NOTICE TICKER
+══════════════════════════════════════ */
+.notice-bar {
+  margin: 14px 14px 0;
+  background: rgba(251,191,36,0.15);
+  border: 1px solid rgba(251,191,36,0.35);
+  border-radius: 8px;
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.notice-scroll {
+  white-space: nowrap;
+  color: #fef3c7;
+  font-size: 12px;
+  padding: 0 16px;
+  animation: ticker 22s linear infinite;
+  display: inline-block;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ══════════════════════════════════════
+   TAB NAV
+══════════════════════════════════════ */
+.tab-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: rgba(60,10,0,0.95);
+  border-top: 1px solid rgba(251,191,36,0.25);
+  border-bottom: 2px solid rgba(251,191,36,0.4);
+  position: sticky;
+  top: 66px;
+  z-index: 40;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: rgba(253,224,183,0.65);
+  font-size: 10.5px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  padding: 10px 4px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tab-btn.active {
+  color: #fbbf24;
+  border-bottom-color: #fbbf24;
+  background: rgba(251,191,36,0.1);
+  font-weight: 700;
+}
+
+.tab-btn:active { transform: scale(0.96); }
+
+/* ══════════════════════════════════════
+   TAB SECTIONS
+══════════════════════════════════════ */
+.tab-section {
+  display: none;
+  flex: 1;
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+.tab-section.active { display: block; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Title */
+.section-title-wrap {
+  text-align: center;
+  padding: 20px 16px 8px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fef3c7;
+  text-shadow: 0 2px 8px rgba(251,191,36,0.4);
+  letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+  font-size: 12px;
+  color: #fcd34d;
+  margin-top: 4px;
+  opacity: 0.85;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ══════════════════════════════════════
+   PRESIDENT CARD
+══════════════════════════════════════ */
+.president-card {
+  margin: 16px 16px 8px;
+  background: linear-gradient(135deg, rgba(180,80,0,0.8), rgba(100,20,0,0.9));
+  border: 2px solid #fbbf24;
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(251,191,36,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.president-card::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%);
+}
+
+.president-avatar-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  margin: 0 auto 10px;
+  box-shadow: 0 0 24px rgba(251,191,36,0.5);
+}
+
+.president-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  letter-spacing: -1px;
+}
+
+.crown-badge {
+  display: inline-block;
+  background: rgba(251,191,36,0.2);
+  border: 1px solid #fbbf24;
+  color: #fbbf24;
+  font-size: 12px;
+  padding: 3px 14px;
+  border-radius: 99px;
+  margin-bottom: 8px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.president-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fef3c7;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin-bottom: 6px;
+}
+
+.president-tagline {
+  font-size: 12px;
+  color: #fcd34d;
+  opacity: 0.85;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════
+   HORIZONTAL SCROLL OFFICERS
+══════════════════════════════════════ */
+.cards-heading {
+  font-size: 13px;
+  color: #fcd34d;
+  padding: 12px 16px 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.h-scroll-wrap {
+  overflow: hidden;
+  padding: 4px 0 8px;
+}
+
+.h-scroll {
+  display: flex;
+  gap: 12px;
+  padding: 8px 16px 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+
+.officer-card {
+  flex-shrink: 0;
+  width: 130px;
+  scroll-snap-align: start;
+  background: linear-gradient(160deg, rgba(160,50,0,0.8), rgba(80,15,0,0.9));
+  border: 1.5px solid rgba(251,191,36,0.4);
+  border-radius: 16px;
+  padding: 16px 12px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.officer-card:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 16px rgba(251,191,36,0.3);
+}
+
+.officer-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 8px;
+  border: 2px solid rgba(255,255,255,0.25);
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.officer-post {
+  font-size: 9.5px;
+  color: #fcd34d;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.officer-name {
+  font-size: 13px;
+  color: #fef3c7;
+  font-weight: 700;
+  line-height: 1.4;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+.officer-name small { font-size: 11px; opacity: 0.8; }
+
+.scroll-hint {
+  text-align: center;
+  font-size: 11px;
+  color: rgba(253,211,77,0.55);
+  padding: 0 0 16px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%,100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+/* ══════════════════════════════════════
+   MEMBER GRID (Karyakarini)
+══════════════════════════════════════ */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 12px 14px 20px;
+}
+
+.member-card {
+  background: linear-gradient(155deg, rgba(160,50,0,0.75), rgba(80,15,0,0.88));
+  border: 1.5px solid rgba(251,191,36,0.35);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s;
+}
+.member-card:active { transform: scale(0.96); }
+
+.member-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 8px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.member-name {
+  font-size: 13.5px;
+  color: #fef3c7;
+  font-weight: 700;
+  line-height: 1.3;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.member-gender-badge {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #fcd34d;
+  background: rgba(251,191,36,0.15);
+  border: 1px solid rgba(251,191,36,0.3);
+  border-radius: 99px;
+  padding: 2px 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ══════════════════════════════════════
+   SEARCH SECTION
+══════════════════════════════════════ */
+.search-box-wrap {
+  padding: 14px 14px 8px;
+}
+
+.search-box-inner {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(251,191,36,0.5);
+  border-radius: 14px;
+  padding: 0 14px;
+  height: 52px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box-inner:focus-within {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.2);
+}
+
+.s-icon { font-size: 18px; flex-shrink: 0; margin-right: 10px; }
+
+.s-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fef3c7;
+  font-size: 16px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  caret-color: #fbbf24;
+}
+.s-input::placeholder { color: rgba(253,211,77,0.45); font-size: 14px; }
+.s-input::-webkit-search-cancel-button { display: none; }
+
+.s-clear {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(251,191,36,0.25);
+  color: #fcd34d;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.s-clear:active { background: rgba(251,191,36,0.5); }
+
+.search-stats-bar {
+  padding: 6px 18px;
+  font-size: 12px;
+  color: #fcd34d;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Loading / Empty states */
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  gap: 14px;
+  text-align: center;
+  color: rgba(253,211,77,0.7);
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.big-spinner {
+  width: 44px; height: 44px;
+  border: 3px solid rgba(251,191,36,0.25);
+  border-top-color: #fbbf24;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.state-emoji { font-size: 48px; }
+.state-title { font-size: 18px; color: #fef3c7; font-weight: 700; }
+.state-sub { font-size: 13px; opacity: 0.7; }
+
+/* Results */
+.results-list {
+  padding: 8px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(160,50,0,0.7), rgba(80,15,0,0.85));
+  border: 1.5px solid rgba(251,191,36,0.3);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.result-card:active { transform: scale(0.98); border-color: #fbbf24; }
+
+.result-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d97706, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.result-info { flex: 1; min-width: 0; }
+
+.result-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fef3c7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.result-phone {
+  font-size: 13px;
+  color: #fcd34d;
+  margin-top: 2px;
+  font-family: 'Poppins', sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-sno {
+  font-size: 10px;
+  color: rgba(253,211,77,0.5);
+  font-family: 'Poppins', sans-serif;
+  font-variant-numeric: tabular-nums;
+  background: rgba(251,191,36,0.1);
+  padding: 2px 8px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+
+mark {
+  background: rgba(251,191,36,0.35);
+  color: #fef3c7;
+  border-radius: 3px;
+  padding: 0 1px;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+.app-footer {
+  background: rgba(40,8,0,0.95);
+  border-top: 2px solid rgba(251,191,36,0.3);
+  padding: 16px 14px 28px;
+  text-align: center;
+}
+
+.footer-logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.footer-om { font-size: 24px; }
+
+.footer-panel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fef3c7;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.footer-creator {
+  font-size: 11px;
+  color: #fcd34d;
+  opacity: 0.75;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+}
+
+.footer-note {
+  font-size: 11px;
+  color: rgba(253,211,77,0.5);
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+/* ══════════════════════════════════════
+   DETAIL BOTTOM SHEET (modal)
+══════════════════════════════════════ */
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 100;
+  animation: overlayIn 0.25s ease;
+}
+@keyframes overlayIn { from { opacity: 0; } }
+
+.detail-sheet {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 101;
+  background: linear-gradient(160deg, #5c1400, #2a0700);
+  border-top: 2px solid #fbbf24;
+  border-radius: 24px 24px 0 0;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: sheetUp 0.35s cubic-bezier(0.4,0,0.2,1);
+  max-width: 480px;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+}
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.sheet-handle {
+  width: 44px; height: 4px;
+  background: rgba(251,191,36,0.35);
+  border-radius: 99px;
+  margin: 10px auto 0;
+}
+
+.sheet-close-btn {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(251,191,36,0.4);
+  background: rgba(251,191,36,0.15);
+  color: #fcd34d;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-content {
+  padding: 16px 20px 32px;
+}
+
+/* Sheet content styles */
+.sheet-avatar-big {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  border: 3px solid rgba(251,191,36,0.5);
+  box-shadow: 0 0 24px rgba(0,0,0,0.4);
+}
+
+.sheet-post-badge {
+  text-align: center;
+  display: inline-block;
+  background: rgba(251,191,36,0.2);
+  border: 1px solid rgba(251,191,36,0.45);
+  color: #fcd34d;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 99px;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.sheet-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fef3c7;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+.sheet-field {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(251,191,36,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.sheet-field-label {
+  font-size: 10px;
+  color: #fcd34d;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 3px;
+}
+
+.sheet-field-value {
+  font-size: 15px;
+  color: #fef3c7;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  word-break: break-word;
+  line-height: 1.4;
+}
+.sheet-field-value.empty { color: rgba(253,211,77,0.4); font-style: italic; font-size: 13px; }
+
+.copy-phone-big {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  background: linear-gradient(135deg, #b45309, #d97706);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.copy-phone-big:active { transform: scale(0.97); }
+.copy-phone-big.copied {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+}
+
+/* Scrollbar hiding for mobile */
+.results-list::-webkit-scrollbar { display: none; }
+.results-list { scrollbar-width: none; }
+
+/* ══════════════════════════════════════
+   DESKTOP ADJUSTMENTS
+══════════════════════════════════════ */
+@media (min-width: 480px) {
+  .app { border-left: 1px solid rgba(251,191,36,0.2); border-right: 1px solid rgba(251,191,36,0.2); }
+  .detail-sheet { left: 50%; right: auto; transform: translateX(-50%); width: 480px; }
+}

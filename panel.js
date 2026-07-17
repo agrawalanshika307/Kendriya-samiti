@@ -9,28 +9,28 @@
 
 const ALL_CANDIDATES = [
   // Officers / पदाधिकारी
-  { name: 'भरत ऐरन',                  initials: 'भऐ',  post: 'महामंत्री',          photo: 'bharat.jpg',    color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
-  { name: 'घीरज गर्ग',                  initials: 'घगर्', post: 'संयोजक',             photo: 'ghiraj.jpg',    color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
-  { name: 'अजय अग्रवाल',              initials: 'अअ',  post: 'कोषाध्यक्ष',          photo: 'ajay.jpg',      color: 'linear-gradient(135deg,#065f46,#34d399)' },
-  { name: 'हरिकिशन जिंदल',            initials: 'हजिं', post: 'पुरुष उपाध्यक्ष',    photo: 'harikishn.jpg', color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
-  { name: 'शीतल गर्ग तोड़ीवाला',      initials: 'शगर्', post: 'महिला उपाध्यक्ष',    photo: 'sheetal.jpg',   color: 'linear-gradient(135deg,#831843,#f472b6)' },
-  { name: 'के.के. गोयल (कांट्रेक्टर)', initials: 'केगो', post: 'सह-मंत्री',          photo: 'kk_goyal.jpg',  color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
-  { name: 'विशाल अग्रवाल (बट्टका)',   initials: 'विअ', post: 'सह-संयोजक',           photo: 'vishal_b.jpg',  color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
+  { name: 'भरत ऐरन', initials: 'भऐ', post: 'महामंत्री', photo: 'bharat.jpg', color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
+  { name: 'घीरज गर्ग', initials: 'घगर्', post: 'संयोजक', photo: 'ghiraj.jpg', color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
+  { name: 'अजय अग्रवाल', initials: 'अअ', post: 'कोषाध्यक्ष', photo: 'ajay.jpg', color: 'linear-gradient(135deg,#065f46,#34d399)' },
+  { name: 'हरिकिशन जिंदल', initials: 'हजिं', post: 'पुरुष उपाध्यक्ष', photo: 'harikishn.jpg', color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
+  { name: 'शीतल गर्ग तोड़ीवाला', initials: 'शगर्', post: 'महिला उपाध्यक्ष', photo: 'sheetal.jpg', color: 'linear-gradient(135deg,#831843,#f472b6)' },
+  { name: 'के.के. गोयल (कांट्रेक्टर)', initials: 'केगो', post: 'सह-मंत्री', photo: 'kk_goyal.jpg', color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
+  { name: 'विशाल अग्रवाल (बट्टका)', initials: 'विअ', post: 'सह-संयोजक', photo: 'vishal_b.jpg', color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
   // पुरुष कार्यकारिणी
-  { name: 'अभिषेक मित्तल',            initials: 'अमि', post: 'पुरुष कार्यकारिणी',  photo: 'abhishek.jpg',  color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
-  { name: 'अमन सिंघल',                initials: 'असिं', post: 'पुरुष कार्यकारिणी', photo: 'aman.jpg',      color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
-  { name: 'आशीष गर्ग',                initials: 'आगर्', post: 'पुरुष कार्यकारिणी', photo: 'aashish.jpg',   color: 'linear-gradient(135deg,#065f46,#34d399)' },
-  { name: 'गौरव अग्रवाल',             initials: 'गअ',  post: 'पुरुष कार्यकारिणी',  photo: 'gaurav.jpg',    color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
-  { name: 'हितेश गोयल',               initials: 'हिगो', post: 'पुरुष कार्यकारिणी', photo: 'hitesh.jpg',    color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
-  { name: 'नितिन अग्रवाल',            initials: 'निअ', post: 'पुरुष कार्यकारिणी',  photo: 'nitin.jpg',     color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
-  { name: 'राम तायल',                  initials: 'रात', post: 'पुरुष कार्यकारिणी',  photo: 'ram.jpg',       color: 'linear-gradient(135deg,#4c1d95,#c084fc)' },
-  { name: 'संजय धन्नालाल गोयल',      initials: 'संगो', post: 'पुरुष कार्यकारिणी', photo: 'sanjay.jpg',    color: 'linear-gradient(135deg,#7f1d1d,#fca5a5)' },
-  { name: 'सुरेन्द्रकुमार अग्रवाल',   initials: 'सुअ', post: 'पुरुष कार्यकारिणी',  photo: 'surendra.jpg',  color: 'linear-gradient(135deg,#164e63,#67e8f9)' },
-  { name: 'विशाल अग्रवाल',            initials: 'विअ', post: 'पुरुष कार्यकारिणी',  photo: 'vishal.jpg',    color: 'linear-gradient(135deg,#3b0764,#e879f9)' },
+  { name: 'अभिषेक मित्तल', initials: 'अमि', post: 'पुरुष कार्यकारिणी', photo: 'abhishek.jpg', color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
+  { name: 'अमन सिंघल', initials: 'असिं', post: 'पुरुष कार्यकारिणी', photo: 'aman.jpg', color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
+  { name: 'आशीष गर्ग', initials: 'आगर्', post: 'पुरुष कार्यकारिणी', photo: 'aashish.jpg', color: 'linear-gradient(135deg,#065f46,#34d399)' },
+  { name: 'गौरव अग्रवाल', initials: 'गअ', post: 'पुरुष कार्यकारिणी', photo: 'gaurav.jpg', color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
+  { name: 'हितेश गोयल', initials: 'हिगो', post: 'पुरुष कार्यकारिणी', photo: 'hitesh.jpg', color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
+  { name: 'नितिन अग्रवाल', initials: 'निअ', post: 'पुरुष कार्यकारिणी', photo: 'nitin.jpg', color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
+  { name: 'राम तायल', initials: 'रात', post: 'पुरुष कार्यकारिणी', photo: 'ram.jpg', color: 'linear-gradient(135deg,#4c1d95,#c084fc)' },
+  { name: 'संजय धन्नालाल गोयल', initials: 'संगो', post: 'पुरुष कार्यकारिणी', photo: 'sanjay.jpg', color: 'linear-gradient(135deg,#7f1d1d,#fca5a5)' },
+  { name: 'सुरेन्द्रकुमार अग्रवाल', initials: 'सुअ', post: 'पुरुष कार्यकारिणी', photo: 'surendra.jpg', color: 'linear-gradient(135deg,#164e63,#67e8f9)' },
+  { name: 'विशाल अग्रवाल', initials: 'विअ', post: 'पुरुष कार्यकारिणी', photo: 'vishal.jpg', color: 'linear-gradient(135deg,#3b0764,#e879f9)' },
   // महिला कार्यकारिणी
-  { name: 'अंजली अग्रवाल',            initials: 'अंअ', post: 'महिला कार्यकारिणी',  photo: 'anjali.jpg',    color: 'linear-gradient(135deg,#831843,#f472b6)' },
-  { name: 'ज्योति गर्ग',               initials: 'ज्यो', post: 'महिला कार्यकारिणी', photo: 'jyoti.jpg',     color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
-  { name: 'शशि ऐरन',                  initials: 'शऐ',  post: 'महिला कार्यकारिणी',  photo: 'shashi.jpg',    color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
+  { name: 'अंजली अग्रवाल', initials: 'अंअ', post: 'महिला कार्यकारिणी', photo: 'anjali.jpg', color: 'linear-gradient(135deg,#831843,#f472b6)' },
+  { name: 'ज्योति गर्ग', initials: 'ज्यो', post: 'महिला कार्यकारिणी', photo: 'jyoti.jpg', color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
+  { name: 'शशि ऐरन', initials: 'शऐ', post: 'महिला कार्यकारिणी', photo: 'shashi.jpg', color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
 ];
 
 /* ══════════════════════════════════════
@@ -215,8 +215,8 @@ function doSearch(raw) {
   const results = allContacts.filter(c => {
     const name = (c['VARSHIK MEMBER NAME'] || '').toLowerCase();
     const phone = String(c['MOBILE'] || '').toLowerCase();
-    const sno  = String(c['S.No.'] || '').toLowerCase();
-    const mno  = String(c['M.No.'] || '').toLowerCase();
+    const sno = String(c['S.No.'] || '').toLowerCase();
+    const mno = String(c['M.No.'] || '').toLowerCase();
     return name.includes(ql) || phone.includes(ql) || sno.includes(ql) || mno.includes(ql);
   });
   renderResults(results, q);
@@ -287,24 +287,23 @@ function buildResultCard(contact, query) {
     <div class="result-info">
       <div class="result-name">${hlText(name, query)}</div>
       ${phone
-        ? `<div class="result-phone">📞 ${hlText(phone, query)}</div>`
-        : `<div class="result-phone" style="opacity:0.4;font-style:italic">मोबाइल नहीं</div>`}
+      ? `<div class="result-phone">📞 ${hlText(phone, query)}</div>`
+      : `<div class="result-phone" style="opacity:0.4;font-style:italic">मोबाइल नहीं</div>`}
     </div>
     <div class="result-right">
       ${sno ? `<span class="result-sno">#${sno}</span>` : ''}
-      <span class="result-tap-hint">›</span>
-    </div>
-  `;
+      <span class="result-tap-hint">click›</span>
+    </div>`;
   div.addEventListener('click', () => showMemberSearchDetail(contact));
   return div;
 }
 
 function showMemberSearchDetail(contact) {
-  const name    = contact['VARSHIK MEMBER NAME'] || '—';
-  const phone   = String(contact['MOBILE'] || '');
+  const name = contact['VARSHIK MEMBER NAME'] || '—';
+  const phone = String(contact['MOBILE'] || '');
   const address = contact['ADDRESS'] || '';
-  const mno     = contact['M.No.'] || '';
-  const sno     = contact['S.No.'] || '';
+  const mno = contact['M.No.'] || '';
+  const sno = contact['S.No.'] || '';
   const initials = getInitials(name);
 
   // Helper: a field row with an inline copy button
@@ -326,8 +325,8 @@ function showMemberSearchDetail(contact) {
       <div class="sheet-avatar-big" style="background:linear-gradient(135deg,#b45309,#d97706)">${initials}</div>
       <div class="sheet-name" style="user-select:text;-webkit-user-select:text;">${esc(name)}</div>
     </div>
-    ${copyField('सदस्य क्रमांक (S.No.)', String(sno), 'cpSno')}
-    ${copyField('सदस्य संख्या (M.No.)', String(mno), 'cpMno')}
+    ${copyField('सरल क्रमांक (S.No.)', String(sno), 'cpSno')}
+    ${copyField('सदस्यता संख्या (M.No.)', String(mno), 'cpMno')}
     ${copyField('मोबाइल नंबर', phone, 'cpPhone')}
     ${copyField('पता', address, 'cpAddr')}
   `;

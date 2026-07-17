@@ -42,19 +42,12 @@ function renderUnifiedGrid() {
 
   grid.innerHTML = ALL_CANDIDATES.map(m => {
     const isSurendra = m.name.includes('सुरेन्द्र');
-    const avatarContent = m.photo
-      ? `<img src="${m.photo}" class="member-photo" alt="${esc(m.name)}"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-         <div class="member-avatar${isSurendra ? ' member-avatar--highlight' : ''}" style="background:${m.color};display:none;">${m.initials}</div>`
-      : `<div class="member-avatar${isSurendra ? ' member-avatar--highlight' : ''}" style="background:${m.color}">${m.initials}</div>`;
-
     return `
-    <div class="member-card${isSurendra ? ' member-card--highlight' : ''}"
+    <div class="cand-card${isSurendra ? ' cand-card--highlight' : ''}"
          onclick="showMemberCard('${esc(m.name)}','${esc(m.initials)}','${esc(m.color)}','${esc(m.post)} पद हेतु')">
-      ${isSurendra ? '<div class="highlight-star">★ वेबसाइट निर्माता</div>' : ''}
-      <div class="member-avatar-wrap">${avatarContent}</div>
-      <div class="member-name">${m.name}</div>
-      <div class="member-gender-badge">${m.post} हेतु</div>
+      <div class="cand-name">${m.name}</div>
+      <div class="cand-post">${m.post} हेतु</div>
+      ${isSurendra ? '<div class="cand-creator">🌐 वेबसाइट के निर्माता</div>' : ''}
     </div>`;
   }).join('');
 }

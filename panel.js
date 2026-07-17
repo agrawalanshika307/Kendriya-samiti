@@ -291,7 +291,6 @@ function buildResultCard(contact, query) {
       : `<div class="result-phone" style="opacity:0.4;font-style:italic">मोबाइल नहीं</div>`}
     </div>
     <div class="result-right">
-      ${sno ? `<span class="result-sno">#${sno}</span>` : ''}
       <span class="result-tap-hint">click›</span>
     </div>`;
   div.addEventListener('click', () => showMemberSearchDetail(contact));

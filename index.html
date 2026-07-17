@@ -47,8 +47,7 @@
   <section class="hero-banner">
     <div class="hero-glow"></div>
     <div class="hero-content">
-      <div class="hero-badge">✦ नामांकन हेतु ✦</div>
-      <h2 class="hero-panel-name">श्री अग्रसेन<br/>सनातन पेनल</h2>
+      <h2 class="hero-panel-name">श्री अग्रसेन सनातन पेनल को विजयी बनाएं</h2>
       <div class="hero-slogan">
         <span class="slogan-left">विश्वास आपका,<br/>संकल्प हमारा।</span>
         <div class="hero-divider-dot">✦</div>
@@ -57,37 +56,29 @@
     </div>
   </section>
 
-  <!-- EVENT INFO STRIP -->
-  <div class="event-strip">
-    <div class="event-card">
-      <span class="event-icon">📅</span>
-      <div>
-        <div class="event-label">तारीख</div>
-        <div class="event-value">रविवार, 26 जुलाई 2026</div>
+  <!-- ══════════════════════════
+       CREATOR SECTION (moved up)
+  ══════════════════════════ -->
+  <section class="creator-section">
+    <div class="creator-label">✦ वेबसाइट निर्माता ✦</div>
+    <div class="creator-card">
+      <div class="creator-photo-wrap">
+        <img
+          src="surendra.jpg"
+          alt="सुरेन्द्रकुमार अग्रवाल"
+          class="creator-photo"
+          onerror="this.style.display='none'; document.getElementById('creatorInitials').style.display='flex';"
+        />
+        <div class="creator-initials" id="creatorInitials">सुअ</div>
+      </div>
+      <div class="creator-info">
+        <div class="creator-name">सुरेन्द्रकुमार अग्रवाल</div>
+        <div class="creator-post">पुरुष कार्यकारिणी उम्मीदवार</div>
+        <div class="creator-panel">श्री अग्रसेन सनातन पेनल</div>
+        <div class="creator-made">🌐 इस वेबसाइट के निर्माता</div>
       </div>
     </div>
-    <div class="event-card">
-      <span class="event-icon">⏰</span>
-      <div>
-        <div class="event-label">समय</div>
-        <div class="event-value">प्रातः 10 से सायं 5 बजे</div>
-      </div>
-    </div>
-    <div class="event-card">
-      <span class="event-icon">📍</span>
-      <div>
-        <div class="event-label">स्थान</div>
-        <div class="event-value">शुभ कारज गार्डन, राजीव गांधी चौराहा, इन्दौर</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NOTICE BAR -->
-  <div class="notice-bar">
-    <div class="notice-scroll">
-      📢 &nbsp; निवेदन — पदाधिकारी हेतु एक एक मत, पुरुष कार्यकारिणी हेतु न्यूनतम 10 मत एवं महिला कार्यकारिणी हेतु 3 मत देना अनिवार्य है। &nbsp; मतदान हेतु अपना परिचय पत्र (आधार कार्ड, ड्राइविंग लाइसेंस आदि) साथ में लाना अनिवार्य है। &nbsp; 📢
-    </div>
-  </div>
+  </section>
 
   <!-- ══════════════════════════
        SECTION: सदस्य खोजें
@@ -102,7 +93,7 @@
           type="search"
           id="searchInput"
           class="s-input"
-          placeholder="नाम या मोबाइल टाइप करें…"
+          placeholder="यहाँ अपना नाम या मोबाइल लिखें…"
           autocomplete="off"
           autocorrect="off"
           spellcheck="false"
@@ -140,46 +131,38 @@
     <div id="resultsList" class="results-list"></div>
   </section>
 
+  <!-- NOTICE BAR -->
+  <div class="notice-bar">
+    <div class="notice-scroll">
+      📢 &nbsp; निवेदन — पदाधिकारी हेतु एक एक मत, पुरुष कार्यकारिणी हेतु न्यूनतम 10 मत एवं महिला कार्यकारिणी हेतु 3 मत देना अनिवार्य है। &nbsp; मतदान हेतु अपना परिचय पत्र (आधार कार्ड, ड्राइविंग लाइसेंस आदि) साथ में लाना अनिवार्य है। &nbsp; 📢
+    </div>
+  </div>
+
   <!-- ══════════════════════════
        उम्मीदवार सूची (एकीकृत)
   ══════════════════════════ -->
   <section id="sec-candidates" class="page-section">
     <div class="sec-divider">🗳️ उम्मीदवार सूची</div>
 
-    <!-- President — featured card, no photo -->
-    <div class="president-card" onclick="showDetail('दिनेश बंसल','अध्यक्ष पद हेतु','अध्यक्ष','#d97706','दिबं')" style="cursor:pointer;">
-      <div class="crown-badge">👑 अध्यक्ष पद हेतु</div>
-      <div class="president-name">दिनेश बंसल</div>
-      <div class="president-tagline">नेतृत्व में अनुभव, समाज में विश्वास</div>
+    <!-- President — featured card with photo -->
+    <div class="president-card president-card--compact" onclick="showDetail('दिनेश बंसल','अध्यक्ष पद हेतु','अध्यक्ष','#d97706','दिबं')" style="cursor:pointer;">
+      <div class="president-photo-wrap">
+        <img src="dinesh.jpg" alt="दिनेश बंसल" class="president-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+        <div class="president-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b);display:none;">दिबं</div>
+      </div>
+      <div class="president-info">
+        <div class="crown-badge">👑 अध्यक्ष पद हेतु</div>
+        <div class="president-name">दिनेश बंसल</div>
+        <div class="president-tagline">नेतृत्व में अनुभव, समाज में विश्वास</div>
+      </div>
     </div>
 
     <!-- Unified grid: officers + karyakarini — filled by JS -->
     <div class="unified-grid" id="unifiedGrid"></div>
   </section>
 
-  <!-- ══════════════════════════
-       CREATOR SECTION
-  ══════════════════════════ -->
-  <section class="creator-section">
-    <div class="creator-label">✦ वेबसाइट निर्माता ✦</div>
-    <div class="creator-card">
-      <div class="creator-photo-wrap">
-        <img
-          src="surendra.jpg"
-          alt="सुरेन्द्रकुमार अग्रवाल"
-          class="creator-photo"
-          onerror="this.style.display='none'; document.getElementById('creatorInitials').style.display='flex';"
-        />
-        <div class="creator-initials" id="creatorInitials">सुअ</div>
-      </div>
-      <div class="creator-info">
-        <div class="creator-name">सुरेन्द्रकुमार अग्रवाल</div>
-        <div class="creator-post">पुरुष कार्यकारिणी उम्मीदवार</div>
-        <div class="creator-panel">श्री अग्रसेन सनातन पेनल</div>
-        <div class="creator-made">🌐 इस वेबसाइट के निर्माता</div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- FOOTER -->
   <footer class="app-footer">

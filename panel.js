@@ -7,24 +7,58 @@
    CANDIDATE DATA
 ══════════════════════════════════════ */
 
-const PURUSH_MEMBERS = [
-  { name: 'अभिषेक मित्तल', initials: 'अमि', color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
-  { name: 'अमन सिंघल', initials: 'असिं', color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
-  { name: 'आशीष गर्ग', initials: 'आगर्', color: 'linear-gradient(135deg,#065f46,#34d399)' },
-  { name: 'गौरव अग्रवाल', initials: 'गअ', color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
-  { name: 'हितेश गोयल', initials: 'हिगो', color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
-  { name: 'नितिन अग्रवाल', initials: 'निअ', color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
-  { name: 'राम तायल', initials: 'रात', color: 'linear-gradient(135deg,#4c1d95,#c084fc)' },
-  { name: 'संजय धन्नालाल गोयल', initials: 'संगो', color: 'linear-gradient(135deg,#7f1d1d,#fca5a5)' },
-  { name: 'सुरेन्द्रकुमार अग्रवाल', initials: 'सुअ', color: 'linear-gradient(135deg,#164e63,#67e8f9)' },
-  { name: 'विशाल अग्रवाल', initials: 'विअ', color: 'linear-gradient(135deg,#3b0764,#e879f9)' },
+const ALL_CANDIDATES = [
+  // Officers / पदाधिकारी
+  { name: 'भरत ऐरन',                  initials: 'भऐ',  post: 'महामंत्री',          photo: 'bharat.jpg',    color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
+  { name: 'घीरज गर्ग',                  initials: 'घगर्', post: 'संयोजक',             photo: 'ghiraj.jpg',    color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
+  { name: 'अजय अग्रवाल',              initials: 'अअ',  post: 'कोषाध्यक्ष',          photo: 'ajay.jpg',      color: 'linear-gradient(135deg,#065f46,#34d399)' },
+  { name: 'हरिकिशन जिंदल',            initials: 'हजिं', post: 'पुरुष उपाध्यक्ष',    photo: 'harikishn.jpg', color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
+  { name: 'शीतल गर्ग तोड़ीवाला',      initials: 'शगर्', post: 'महिला उपाध्यक्ष',    photo: 'sheetal.jpg',   color: 'linear-gradient(135deg,#831843,#f472b6)' },
+  { name: 'के.के. गोयल (कांट्रेक्टर)', initials: 'केगो', post: 'सह-मंत्री',          photo: 'kk_goyal.jpg',  color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
+  { name: 'विशाल अग्रवाल (बट्टका)',   initials: 'विअ', post: 'सह-संयोजक',           photo: 'vishal_b.jpg',  color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
+  // पुरुष कार्यकारिणी
+  { name: 'अभिषेक मित्तल',            initials: 'अमि', post: 'पुरुष कार्यकारिणी',  photo: 'abhishek.jpg',  color: 'linear-gradient(135deg,#7c3aed,#a78bfa)' },
+  { name: 'अमन सिंघल',                initials: 'असिं', post: 'पुरुष कार्यकारिणी', photo: 'aman.jpg',      color: 'linear-gradient(135deg,#0369a1,#38bdf8)' },
+  { name: 'आशीष गर्ग',                initials: 'आगर्', post: 'पुरुष कार्यकारिणी', photo: 'aashish.jpg',   color: 'linear-gradient(135deg,#065f46,#34d399)' },
+  { name: 'गौरव अग्रवाल',             initials: 'गअ',  post: 'पुरुष कार्यकारिणी',  photo: 'gaurav.jpg',    color: 'linear-gradient(135deg,#9f1239,#fb7185)' },
+  { name: 'हितेश गोयल',               initials: 'हिगो', post: 'पुरुष कार्यकारिणी', photo: 'hitesh.jpg',    color: 'linear-gradient(135deg,#713f12,#fbbf24)' },
+  { name: 'नितिन अग्रवाल',            initials: 'निअ', post: 'पुरुष कार्यकारिणी',  photo: 'nitin.jpg',     color: 'linear-gradient(135deg,#1e3a5f,#60a5fa)' },
+  { name: 'राम तायल',                  initials: 'रात', post: 'पुरुष कार्यकारिणी',  photo: 'ram.jpg',       color: 'linear-gradient(135deg,#4c1d95,#c084fc)' },
+  { name: 'संजय धन्नालाल गोयल',      initials: 'संगो', post: 'पुरुष कार्यकारिणी', photo: 'sanjay.jpg',    color: 'linear-gradient(135deg,#7f1d1d,#fca5a5)' },
+  { name: 'सुरेन्द्रकुमार अग्रवाल',   initials: 'सुअ', post: 'पुरुष कार्यकारिणी',  photo: 'surendra.jpg',  color: 'linear-gradient(135deg,#164e63,#67e8f9)' },
+  { name: 'विशाल अग्रवाल',            initials: 'विअ', post: 'पुरुष कार्यकारिणी',  photo: 'vishal.jpg',    color: 'linear-gradient(135deg,#3b0764,#e879f9)' },
+  // महिला कार्यकारिणी
+  { name: 'अंजली अग्रवाल',            initials: 'अंअ', post: 'महिला कार्यकारिणी',  photo: 'anjali.jpg',    color: 'linear-gradient(135deg,#831843,#f472b6)' },
+  { name: 'ज्योति गर्ग',               initials: 'ज्यो', post: 'महिला कार्यकारिणी', photo: 'jyoti.jpg',     color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
+  { name: 'शशि ऐरन',                  initials: 'शऐ',  post: 'महिला कार्यकारिणी',  photo: 'shashi.jpg',    color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
 ];
 
-const MAHILA_MEMBERS = [
-  { name: 'अंजली अग्रवाल', initials: 'अंअ', color: 'linear-gradient(135deg,#831843,#f472b6)' },
-  { name: 'ज्योति गर्ग', initials: 'ज्यो', color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
-  { name: 'शशि ऐरन', initials: 'शऐ', color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
-];
+/* ══════════════════════════════════════
+   RENDER UNIFIED GRID
+══════════════════════════════════════ */
+function renderUnifiedGrid() {
+  const grid = document.getElementById('unifiedGrid');
+  if (!grid) return;
+
+  grid.innerHTML = ALL_CANDIDATES.map(m => {
+    const isSurendra = m.name.includes('सुरेन्द्र');
+    const avatarContent = m.photo
+      ? `<img src="${m.photo}" class="member-photo" alt="${esc(m.name)}"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+         <div class="member-avatar${isSurendra ? ' member-avatar--highlight' : ''}" style="background:${m.color};display:none;">${m.initials}</div>`
+      : `<div class="member-avatar${isSurendra ? ' member-avatar--highlight' : ''}" style="background:${m.color}">${m.initials}</div>`;
+
+    return `
+    <div class="member-card${isSurendra ? ' member-card--highlight' : ''}"
+         onclick="showMemberCard('${esc(m.name)}','${esc(m.initials)}','${esc(m.color)}','${esc(m.post)} पद हेतु')">
+      ${isSurendra ? '<div class="highlight-star">★ वेबसाइट निर्माता</div>' : ''}
+      <div class="member-avatar-wrap">${avatarContent}</div>
+      <div class="member-name">${m.name}</div>
+      <div class="member-gender-badge">${m.post} हेतु</div>
+    </div>`;
+  }).join('');
+}
+
 
 /* ══════════════════════════════════════
    SPLASH → APP TRANSITION
@@ -41,50 +75,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }, 3000);
 
-  renderMemberGrid('purushGrid', PURUSH_MEMBERS);
-  renderMemberGrid('mahilaGrid', MAHILA_MEMBERS);
+  renderUnifiedGrid();
   loadContacts();
   bindSearchEvents();
 });
-
-/* ══════════════════════════════════════
-   RENDER GRIDS
-══════════════════════════════════════ */
-function renderMemberGrid(gridId, members) {
-  const grid = document.getElementById(gridId);
-  if (!grid) return;
-  const isMahila = gridId === 'mahilaGrid';
-
-  grid.innerHTML = members.map(m => `
-    <div class="member-card" onclick="showMemberCard('${esc(m.name)}','${esc(m.initials)}','${esc(m.color)}','${isMahila ? 'महिला' : 'पुरुष'} कार्यकारिणी')">
-      <div class="member-avatar" style="background:${m.color}">${m.initials}</div>
-      <div class="member-name">${m.name}</div>
-      <div class="member-gender-badge">${isMahila ? '👩 महिला' : '👨 पुरुष'}</div>
-    </div>
-  `).join('');
-}
-
-/* ══════════════════════════════════════
-   TAB SWITCHING
-══════════════════════════════════════ */
-function switchTab(tabId) {
-  // Sections
-  document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
-  const target = document.getElementById('tab-' + tabId);
-  if (target) target.classList.add('active');
-
-  // Buttons
-  document.querySelectorAll('.tab-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.tab === tabId);
-  });
-
-  // When search tab opens, focus input
-  if (tabId === 'search') {
-    setTimeout(() => {
-      document.getElementById('searchInput')?.focus();
-    }, 100);
-  }
-}
 
 /* ══════════════════════════════════════
    OFFICER DETAIL SHEET
@@ -177,10 +171,11 @@ async function loadContacts() {
     const data = await res.json();
     allContacts = Array.isArray(data) ? data : [];
     document.getElementById('loadingState').classList.add('hidden');
-    renderResults(allContacts, '');
-    updateStats(allContacts.length, '');
+    // Show the ready-to-search hint, NOT the full list
+    document.getElementById('searchReady').classList.remove('hidden');
   } catch (e) {
     document.getElementById('loadingState').classList.add('hidden');
+    document.getElementById('searchReady').classList.add('hidden');
     document.getElementById('noResults').classList.remove('hidden');
     document.querySelector('#noResults .state-title').textContent = 'डेटा लोड नहीं हुआ';
     document.querySelector('#noResults .state-sub').textContent = 'कृपया local server पर खोलें';
@@ -209,17 +204,28 @@ function clearSearch() {
 
 function doSearch(raw) {
   const q = raw.trim();
-  let results;
+  const readyEl = document.getElementById('searchReady');
+
   if (!q) {
-    results = allContacts;
-  } else {
-    const ql = q.toLowerCase();
-    results = allContacts.filter(c => {
-      const name = (c['VARSHIK MEMBER NAME'] || '').toLowerCase();
-      const phone = String(c['MOBILE'] || '').toLowerCase();
-      return name.includes(ql) || phone.includes(ql);
-    });
+    // User cleared the field — go back to the hint state
+    document.getElementById('resultsList').innerHTML = '';
+    document.getElementById('noResults').classList.add('hidden');
+    document.getElementById('searchStats').classList.add('hidden');
+    if (readyEl) readyEl.classList.remove('hidden');
+    return;
   }
+
+  // Hide hint, show results
+  if (readyEl) readyEl.classList.add('hidden');
+
+  const ql = q.toLowerCase();
+  const results = allContacts.filter(c => {
+    const name = (c['VARSHIK MEMBER NAME'] || '').toLowerCase();
+    const phone = String(c['MOBILE'] || '').toLowerCase();
+    const sno  = String(c['S.No.'] || '').toLowerCase();
+    const mno  = String(c['M.No.'] || '').toLowerCase();
+    return name.includes(ql) || phone.includes(ql) || sno.includes(ql) || mno.includes(ql);
+  });
   renderResults(results, q);
   updateStats(results.length, q);
 }
@@ -291,51 +297,65 @@ function buildResultCard(contact, query) {
         ? `<div class="result-phone">📞 ${hlText(phone, query)}</div>`
         : `<div class="result-phone" style="opacity:0.4;font-style:italic">मोबाइल नहीं</div>`}
     </div>
-    ${sno ? `<span class="result-sno">#${sno}</span>` : ''}
+    <div class="result-right">
+      ${sno ? `<span class="result-sno">#${sno}</span>` : ''}
+      <span class="result-tap-hint">›</span>
+    </div>
   `;
   div.addEventListener('click', () => showMemberSearchDetail(contact));
   return div;
 }
 
 function showMemberSearchDetail(contact) {
-  const name = contact['VARSHIK MEMBER NAME'] || '—';
-  const phone = String(contact['MOBILE'] || '');
+  const name    = contact['VARSHIK MEMBER NAME'] || '—';
+  const phone   = String(contact['MOBILE'] || '');
   const address = contact['ADDRESS'] || '';
-  const mno = contact['M.No.'] || '';
-  const sno = contact['S.No.'] || '';
+  const mno     = contact['M.No.'] || '';
+  const sno     = contact['S.No.'] || '';
   const initials = getInitials(name);
+
+  // Helper: a field row with an inline copy button
+  function copyField(label, value, btnId) {
+    const hasVal = value && value !== '—';
+    return `
+      <div class="sheet-field">
+        <div class="sheet-field-header">
+          <span class="sheet-field-label">${label}</span>
+          ${hasVal ? `<button class="field-copy-btn" id="${btnId}" onclick="fieldCopy('${btnId}','${esc(value)}')">📋</button>` : ''}
+        </div>
+        <div class="sheet-field-value${hasVal ? '' : ' empty'}" style="user-select:text;-webkit-user-select:text;">${hasVal ? esc(value) : 'उपलब्ध नहीं'}</div>
+      </div>`;
+  }
 
   const content = document.getElementById('memberSheetContent');
   content.innerHTML = `
     <div style="text-align:center;margin-bottom:14px;">
       <div class="sheet-avatar-big" style="background:linear-gradient(135deg,#b45309,#d97706)">${initials}</div>
-      <div class="sheet-name">${esc(name)}</div>
+      <div class="sheet-name" style="user-select:text;-webkit-user-select:text;">${esc(name)}</div>
     </div>
-    <div class="sheet-field">
-      <div class="sheet-field-label">सदस्य क्रमांक (S.No.)</div>
-      <div class="sheet-field-value">${esc(String(sno)) || 'उपलब्ध नहीं'}</div>
-    </div>
-    <div class="sheet-field">
-      <div class="sheet-field-label">सदस्य संख्या (M.No.)</div>
-      <div class="sheet-field-value">${esc(String(mno)) || 'उपलब्ध नहीं'}</div>
-    </div>
-    <div class="sheet-field">
-      <div class="sheet-field-label">पता</div>
-      <div class="sheet-field-value ${address ? '' : 'empty'}">${address ? esc(address) : 'उपलब्ध नहीं'}</div>
-    </div>
-    <div class="sheet-field">
-      <div class="sheet-field-label">मोबाइल नंबर</div>
-      <div class="sheet-field-value ${phone ? '' : 'empty'}">${phone || 'उपलब्ध नहीं'}</div>
-    </div>
-    ${phone ? `
-    <button id="copyPhoneBtn" class="copy-phone-big" onclick="copyPhoneHandler('${esc(phone)}')">
-      📋 मोबाइल नंबर कॉपी करें
-    </button>` : ''}
+    ${copyField('सदस्य क्रमांक (S.No.)', String(sno), 'cpSno')}
+    ${copyField('सदस्य संख्या (M.No.)', String(mno), 'cpMno')}
+    ${copyField('मोबाइल नंबर', phone, 'cpPhone')}
+    ${copyField('पता', address, 'cpAddr')}
   `;
 
   document.getElementById('memberOverlay').classList.remove('hidden');
   document.getElementById('memberSheet').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+}
+
+function fieldCopy(btnId, value) {
+  copyToClipboard(value).then(() => {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    const prev = btn.textContent;
+    btn.textContent = '✅';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = prev;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
 }
 
 function copyPhoneHandler(phone) {

@@ -12,15 +12,11 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     BACKGROUND LAYERS
-══════════════════════════════════════ -->
+<!-- BACKGROUND LAYERS -->
 <div class="bg-layer"></div>
 <div class="bg-overlay"></div>
 
-<!-- ══════════════════════════════════════
-     SPLASH SCREEN
-══════════════════════════════════════ -->
+<!-- SPLASH SCREEN -->
 <div id="splash" class="splash">
   <div class="splash-inner">
     <img src="logo.png" alt="महाराज अग्रसेन" class="splash-logo" onerror="this.style.display='none'" />
@@ -33,12 +29,10 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     MAIN APP
-══════════════════════════════════════ -->
+<!-- MAIN APP -->
 <div id="app" class="app hidden">
 
-  <!-- ─── TOP HEADER ─── -->
+  <!-- TOP HEADER -->
   <header class="top-header">
     <div class="header-logo-area">
       <img src="logo.png" alt="अग्रसेन" class="header-logo" onerror="this.style.display='none'" />
@@ -49,7 +43,7 @@
     </div>
   </header>
 
-  <!-- ─── HERO BANNER ─── -->
+  <!-- HERO BANNER -->
   <section class="hero-banner">
     <div class="hero-glow"></div>
     <div class="hero-content">
@@ -63,7 +57,7 @@
     </div>
   </section>
 
-  <!-- ─── EVENT INFO STRIP ─── -->
+  <!-- EVENT INFO STRIP -->
   <div class="event-strip">
     <div class="event-card">
       <span class="event-icon">📅</span>
@@ -88,135 +82,18 @@
     </div>
   </div>
 
-  <!-- ─── NOTICE BAR ─── -->
+  <!-- NOTICE BAR -->
   <div class="notice-bar">
     <div class="notice-scroll">
       📢 &nbsp; निवेदन — पदाधिकारी हेतु एक एक मत, पुरुष कार्यकारिणी हेतु न्यूनतम 10 मत एवं महिला कार्यकारिणी हेतु 3 मत देना अनिवार्य है। &nbsp; मतदान हेतु अपना परिचय पत्र (आधार कार्ड, ड्राइविंग लाइसेंस आदि) साथ में लाना अनिवार्य है। &nbsp; 📢
     </div>
   </div>
 
-  <!-- ─── TAB NAVIGATION ─── -->
-  <nav class="tab-nav" id="tabNav">
-    <button class="tab-btn active" data-tab="padadhikari" onclick="switchTab('padadhikari')">
-      🏛️ पदाधिकारी
-    </button>
-    <button class="tab-btn" data-tab="purush" onclick="switchTab('purush')">
-      👨 पुरुष<br/>कार्यकारिणी
-    </button>
-    <button class="tab-btn" data-tab="mahila" onclick="switchTab('mahila')">
-      👩 महिला<br/>कार्यकारिणी
-    </button>
-    <button class="tab-btn" data-tab="search" onclick="switchTab('search')">
-      🔍 सदस्य<br/>खोजें
-    </button>
-  </nav>
-
-  <!-- ══════════════════════════════════════
-       SECTION: पदाधिकारीगण
-  ══════════════════════════════════════ -->
-  <section id="tab-padadhikari" class="tab-section active">
-    <div class="section-title-wrap">
-      <div class="section-title">✦ पदाधिकारीगण ✦</div>
-      <div class="section-subtitle">मुख्य पद के उम्मीदवार</div>
-    </div>
-
-    <!-- Main officer — PRESIDENT (big card) -->
-    <div class="president-card">
-      <div class="president-avatar-ring">
-        <div class="president-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b)">दिबं</div>
-      </div>
-      <div class="crown-badge">👑 अध्यक्ष पद हेतु</div>
-      <div class="president-name">दिनेश बंसल</div>
-      <div class="president-tagline">नेतृत्व में अनुभव, समाज में विश्वास</div>
-    </div>
-
-    <!-- Sliding officer cards -->
-    <div class="cards-heading">अन्य पदाधिकारी</div>
-    <div class="h-scroll-wrap">
-      <div class="h-scroll" id="officerScroll">
-
-        <div class="officer-card" onclick="showDetail('भरत ऐरन','महामंत्री पद हेतु','महामंत्री','#7c3aed','भऐ')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">भऐ</div>
-          <div class="officer-post">महामंत्री पद हेतु</div>
-          <div class="officer-name">भरत ऐरन</div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('घीरज गर्ग','संयोजक पद हेतु','संयोजक','#0369a1','घगर्')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">घगर्</div>
-          <div class="officer-post">संयोजक पद हेतु</div>
-          <div class="officer-name">घीरज गर्ग</div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('अजय अग्रवाल','कोषाध्यक्ष पद हेतु','कोषाध्यक्ष','#065f46','अअ')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#065f46,#34d399)">अअ</div>
-          <div class="officer-post">कोषाध्यक्ष पद हेतु</div>
-          <div class="officer-name">अजय अग्रवाल</div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('हरिकिशन जिंदल','पुरुष उपाध्यक्ष पद हेतु','उपाध्यक्ष','#9f1239','हजिं')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#9f1239,#fb7185)">हजिं</div>
-          <div class="officer-post">पुरुष उपाध्यक्ष पद हेतु</div>
-          <div class="officer-name">हरिकिशन जिंदल</div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('शीतल गर्ग तोड़ीवाला','महिला उपाध्यक्ष पद हेतु','उपाध्यक्ष','#831843','शगर्')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#831843,#f472b6)">शगर्</div>
-          <div class="officer-post">महिला उपाध्यक्ष पद हेतु</div>
-          <div class="officer-name">शीतल गर्ग तोड़ीवाला</div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('के.के. गोयल (कांट्रेक्टर)','सह-मंत्री पद हेतु','सह-मंत्री','#713f12','केगो')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#713f12,#fbbf24)">केगो</div>
-          <div class="officer-post">सह-मंत्री पद हेतु</div>
-          <div class="officer-name">के.के. गोयल<br/><small>(कांट्रेक्टर)</small></div>
-        </div>
-
-        <div class="officer-card" onclick="showDetail('विशाल अग्रवाल (बट्टका)','सह-संयोजक पद हेतु','सह-संयोजक','#1e3a5f','विअ')">
-          <div class="officer-avatar" style="background:linear-gradient(135deg,#1e3a5f,#60a5fa)">विअ</div>
-          <div class="officer-post">सह-संयोजक पद हेतु</div>
-          <div class="officer-name">विशाल अग्रवाल<br/><small>(बट्टका)</small></div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="scroll-hint">← स्वाइप करें →</div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       SECTION: पुरुष कार्यकारिणी
-  ══════════════════════════════════════ -->
-  <section id="tab-purush" class="tab-section">
-    <div class="section-title-wrap">
-      <div class="section-title">✦ पुरुष कार्यकारिणी ✦</div>
-      <div class="section-subtitle">10 सदस्य — न्यूनतम 10 मत अनिवार्य</div>
-    </div>
-    <div class="member-grid" id="purushGrid">
-      <!-- filled by JS -->
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       SECTION: महिला कार्यकारिणी
-  ══════════════════════════════════════ -->
-  <section id="tab-mahila" class="tab-section">
-    <div class="section-title-wrap">
-      <div class="section-title">✦ महिला कार्यकारिणी ✦</div>
-      <div class="section-subtitle">3 सदस्य — न्यूनतम 3 मत अनिवार्य</div>
-    </div>
-    <div class="member-grid" id="mahilaGrid">
-      <!-- filled by JS -->
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
+  <!-- ══════════════════════════
        SECTION: सदस्य खोजें
-  ══════════════════════════════════════ -->
-  <section id="tab-search" class="tab-section">
-    <div class="section-title-wrap">
-      <div class="section-title">✦ सदस्य खोजें ✦</div>
-      <div class="section-subtitle">नाम या मोबाइल नंबर से खोजें</div>
-    </div>
+  ══════════════════════════ -->
+  <section id="sec-search" class="page-section">
+    <div class="sec-divider">🔍 सदस्य खोजें</div>
 
     <div class="search-box-wrap">
       <div class="search-box-inner">
@@ -240,9 +117,16 @@
     </div>
 
     <!-- Loading -->
-    <div id="loadingState" class="state-box">
+    <div id="loadingState" class="state-box hidden">
       <div class="big-spinner"></div>
       <p>सदस्य सूची लोड हो रही है…</p>
+    </div>
+
+    <!-- Ready hint -->
+    <div id="searchReady" class="state-box">
+      <div class="state-emoji">🔍</div>
+      <p class="state-title">अपना सदस्यता क्रमांक जानें</p>
+      <p class="state-sub">नाम या मोबाइल नंबर टाइप करें — आपका सदस्यता क्रमांक दिखेगा</p>
     </div>
 
     <!-- No results -->
@@ -256,23 +140,66 @@
     <div id="resultsList" class="results-list"></div>
   </section>
 
-  <!-- ─── FOOTER ─── -->
+  <!-- ══════════════════════════
+       उम्मीदवार सूची (एकीकृत)
+  ══════════════════════════ -->
+  <section id="sec-candidates" class="page-section">
+    <div class="sec-divider">🗳️ उम्मीदवार सूची</div>
+
+    <!-- President — featured with photo -->
+    <div class="president-card" onclick="showDetail('दिनेश बंसल','अध्यक्ष पद हेतु','अध्यक्ष','#d97706','दिबं')" style="cursor:pointer;">
+      <div class="president-photo-wrap">
+        <img src="dinesh.jpg" alt="दिनेश बंसल" class="president-photo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+        <div class="president-avatar" style="background:linear-gradient(135deg,#d97706,#f59e0b);display:none;">दिबं</div>
+      </div>
+      <div class="crown-badge">👑 अध्यक्ष पद हेतु</div>
+      <div class="president-name">दिनेश बंसल</div>
+      <div class="president-tagline">नेतृत्व में अनुभव, समाज में विश्वास</div>
+    </div>
+
+    <!-- Unified grid: officers + karyakarini — filled by JS -->
+    <div class="unified-grid" id="unifiedGrid"></div>
+  </section>
+
+  <!-- ══════════════════════════
+       CREATOR SECTION
+  ══════════════════════════ -->
+  <section class="creator-section">
+    <div class="creator-label">✦ वेबसाइट निर्माता ✦</div>
+    <div class="creator-card">
+      <div class="creator-photo-wrap">
+        <img
+          src="surendra.jpg"
+          alt="सुरेन्द्रकुमार अग्रवाल"
+          class="creator-photo"
+          onerror="this.style.display='none'; document.getElementById('creatorInitials').style.display='flex';"
+        />
+        <div class="creator-initials" id="creatorInitials">सुअ</div>
+      </div>
+      <div class="creator-info">
+        <div class="creator-name">सुरेन्द्रकुमार अग्रवाल</div>
+        <div class="creator-post">पुरुष कार्यकारिणी उम्मीदवार</div>
+        <div class="creator-panel">श्री अग्रसेन सनातन पेनल</div>
+        <div class="creator-made">🌐 इस वेबसाइट के निर्माता</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="app-footer">
     <div class="footer-logo-area">
       <span class="footer-om">🙏</span>
       <div>
         <div class="footer-panel">श्री अग्रसेन सनातन पेनल</div>
-        <div class="footer-creator">Created by Surendra Kumar Agrawal</div>
+        <div class="footer-org">श्री अग्रवाल समाज केन्द्रीय समिति (रजि.), इन्दौर</div>
       </div>
     </div>
-    <div class="footer-note">श्री अग्रवाल समाज केन्द्रीय समिति (रजि.), इन्दौर</div>
   </footer>
 
 </div><!-- /#app -->
 
-<!-- ══════════════════════════════════════
-     DETAIL MODAL (bottom sheet)
-══════════════════════════════════════ -->
+<!-- DETAIL MODAL -->
 <div id="detailOverlay" class="detail-overlay hidden" onclick="closeDetail()"></div>
 <div id="detailSheet" class="detail-sheet hidden">
   <div class="sheet-handle"></div>
@@ -280,9 +207,7 @@
   <div id="sheetContent" class="sheet-content"></div>
 </div>
 
-<!-- ══════════════════════════════════════
-     MEMBER DETAIL MODAL
-══════════════════════════════════════ -->
+<!-- MEMBER DETAIL MODAL -->
 <div id="memberOverlay" class="detail-overlay hidden" onclick="closeMemberDetail()"></div>
 <div id="memberSheet" class="detail-sheet hidden">
   <div class="sheet-handle"></div>

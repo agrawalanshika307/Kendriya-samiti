@@ -883,8 +883,8 @@ body {
 .search-box-inner {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(251, 191, 36, 0.6);
+  background: #0c0c0c;
+  border: 2px solid rgba(15, 14, 14, 0.6);
   border-radius: 16px;
   padding: 0 16px;
   height: 64px;
@@ -893,7 +893,7 @@ body {
 }
 
 .search-box-inner:focus-within {
-  border-color: #fbbf24;
+  border-color: #090909;
   box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
 }
 

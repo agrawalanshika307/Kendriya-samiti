@@ -85,13 +85,21 @@
        SECTION: सदस्य खोजें
   ══════════════════════════ -->
     <section id="sec-search" class="page-section">
-      <div class="sec-divider">🔍 सदस्य खोजें</div>
+      <div class="sec-divider">🔍 अपना सदस्यता क्रमांक जानें</div>
+
+      <!-- Clear CTA instruction -->
+      <div class="search-cta-box">
+        <div class="search-cta-icon">👇</div>
+        <div class="search-cta-text">
+          <strong>नीचे दिए बॉक्स में</strong> अपना नाम या मोबाइल नंबर <strong>टाइप करें</strong>
+        </div>
+      </div>
 
       <div class="search-box-wrap">
         <div class="search-box-inner">
-          <span class="s-icon">🔍</span>
-          <input type="search" id="searchInput" class="s-input" placeholder="यहाँ अपना नाम या मोबाइल लिखें…"
-            autocomplete="off" autocorrect="off" spellcheck="false" inputmode="search" />
+          <span class="s-icon">✏️</span>
+          <input type="search" id="searchInput" class="s-input" placeholder="यहाँ अपना नाम या मोबाइल नंबर लिखें…"
+            autocomplete="off" autocorrect="off" spellcheck="false" inputmode="search" autofocus />
           <button id="clearBtn" class="s-clear hidden" onclick="clearSearch()">✕</button>
         </div>
       </div>
@@ -106,11 +114,9 @@
         <p>सदस्य सूची लोड हो रही है…</p>
       </div>
 
-      <!-- Ready hint -->
-      <div id="searchReady" class="state-box">
-        <div class="state-emoji">🔍</div>
-        <p class="state-title">अपना सदस्यता क्रमांक जानें</p>
-        <p class="state-sub">नाम या मोबाइल नंबर टाइप करें — आपका सदस्यता क्रमांक दिखेगा</p>
+      <!-- Ready hint — compact, no big emoji -->
+      <div id="searchReady" class="state-box state-box--compact">
+        <p class="state-sub">ऊपर बॉक्स में नाम या मोबाइल नंबर टाइप करें — आपका सदस्यता क्रमांक दिखेगा</p>
       </div>
 
       <!-- No results -->
@@ -123,6 +129,7 @@
       <!-- Results -->
       <div id="resultsList" class="results-list"></div>
     </section>
+
 
 
     <!-- ══════════════════════════

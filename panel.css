@@ -446,14 +446,58 @@ body {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(251,191,36,0.18);
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 8px 10px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
   -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .cand-card:active {
   background: rgba(251,191,36,0.1);
   border-color: rgba(251,191,36,0.4);
+}
+
+/* Small square thumbnail inside card */
+.cand-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(251,191,36,0.35);
+}
+
+/* Fallback initials / grey avatar */
+.cand-thumb-placeholder {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fef3c7;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  background: rgba(251,191,36,0.15);
+  border: 1.5px solid rgba(251,191,36,0.3);
+}
+
+/* Grey avatar for "photo pending" */
+.cand-thumb-grey {
+  background: rgba(150,150,150,0.25);
+  border-color: rgba(180,180,180,0.3);
+  color: rgba(220,220,220,0.6);
+  font-size: 20px;
+}
+
+.cand-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .cand-name {
@@ -816,6 +860,54 @@ body {
   text-align: center;
   color: rgba(253,211,77,0.7);
   font-family: 'Tiro Devanagari Hindi', serif;
+}
+
+/* Compact version — no big padding/emoji */
+.state-box--compact {
+  padding: 12px 16px;
+  background: rgba(251,191,36,0.07);
+  border-radius: 10px;
+  margin: 0 14px;
+}
+.state-box--compact .state-sub {
+  font-size: 13px;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Search CTA instruction banner */
+.search-cta-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(251,191,36,0.12);
+  border: 1.5px solid rgba(251,191,36,0.4);
+  border-radius: 14px;
+  margin: 0 14px 4px;
+  padding: 12px 14px;
+}
+
+.search-cta-icon {
+  font-size: 26px;
+  animation: cta-bounce 0.9s ease-in-out infinite alternate;
+  flex-shrink: 0;
+}
+
+@keyframes cta-bounce {
+  from { transform: translateY(-4px); }
+  to   { transform: translateY(4px); }
+}
+
+.search-cta-text {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 15px;
+  color: #fef3c7;
+  line-height: 1.5;
+}
+
+.search-cta-text strong {
+  color: #fbbf24;
+  font-weight: 700;
 }
 
 .big-spinner {

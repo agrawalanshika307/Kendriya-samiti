@@ -29,8 +29,8 @@ const ALL_CANDIDATES = [
   { name: 'विशाल अग्रवाल', initials: 'विअ', post: 'पुरुष कार्यकारिणी', photo: 'vishal.jpg', color: 'linear-gradient(135deg,#3b0764,#e879f9)' },
   // महिला कार्यकारिणी
   { name: 'अंजली अग्रवाल', initials: 'अंअ', post: 'महिला कार्यकारिणी', photo: 'anjali.jpg', color: 'linear-gradient(135deg,#831843,#f472b6)' },
-  { name: 'ज्योति गर्ग', initials: 'ज्यो', post: 'महिला कार्यकारिणी', photo: 'jyoti.jpg', color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
-  { name: 'शशि ऐरन', initials: 'शऐ', post: 'महिला कार्यकारिणी', photo: 'shashi.jpg', color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
+  { name: 'स्वाति मंगल', initials: 'स्वमं', post: 'महिला कार्यकारिणी', photo: null, color: 'linear-gradient(135deg,#7c2d12,#fb923c)' },
+  { name: 'शशि एरन', initials: 'शए', post: 'महिला कार्यकारिणी', photo: 'sashi.jpg', color: 'linear-gradient(135deg,#1e1b4b,#818cf8)' },
 ];
 
 /* ══════════════════════════════════════
@@ -42,12 +42,23 @@ function renderUnifiedGrid() {
 
   grid.innerHTML = ALL_CANDIDATES.map(m => {
     const isSurendra = m.name.includes('सुरेन्द्र');
+    let photoHtml;
+    if (m.photo) {
+      photoHtml = `<img src="${m.photo}" class="cand-thumb" alt="${esc(m.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="cand-thumb-placeholder" style="display:none;">${esc(m.initials)}</div>`;
+    } else {
+      // Grey placeholder for candidates with no photo
+      photoHtml = `<div class="cand-thumb-placeholder cand-thumb-grey">👤</div>`;
+    }
     return `
     <div class="cand-card${isSurendra ? ' cand-card--highlight' : ''}"
          onclick="showMemberCard('${esc(m.name)}','${esc(m.initials)}','${esc(m.color)}','${esc(m.post)} पद हेतु')">
-      <div class="cand-name">${m.name}</div>
-      <div class="cand-post">${m.post} हेतु</div>
-      ${isSurendra ? '<div class="cand-creator">🌐 वेबसाइट के निर्माता</div>' : ''}
+      ${photoHtml}
+      <div class="cand-text">
+        <div class="cand-name">${m.name}</div>
+        <div class="cand-post">${m.post} हेतु</div>
+        ${isSurendra ? '<div class="cand-creator">🌐 वेबसाइट के निर्माता</div>' : ''}
+      </div>
     </div>`;
   }).join('');
 }
@@ -178,10 +189,13 @@ async function loadContacts() {
 function bindSearchEvents() {
   const input = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearBtn');
+  const ctaBox = document.querySelector('.search-cta-box');
 
   input.addEventListener('input', () => {
     const val = input.value;
     clearBtn.classList.toggle('hidden', val.length === 0);
+    // Hide CTA once typing starts
+    if (ctaBox) ctaBox.style.display = val.length > 0 ? 'none' : 'flex';
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => doSearch(val), 200);
   });
@@ -191,6 +205,9 @@ function clearSearch() {
   const input = document.getElementById('searchInput');
   input.value = '';
   document.getElementById('clearBtn').classList.add('hidden');
+  // Restore CTA
+  const ctaBox = document.querySelector('.search-cta-box');
+  if (ctaBox) ctaBox.style.display = 'flex';
   doSearch('');
   input.focus();
 }
